@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import User from '../user/User';
+import SelectedUsers from '../selectedUsers/SelectedUsers';
 import UserForm from '../userForm/UserForm';
+import UserList from '../userList/UserList';
 import './UserSection.css'
 class UserSection extends Component {
   constructor(props) {
@@ -11,13 +12,24 @@ class UserSection extends Component {
   }
 
   render() {
-    const users = this.state.users.map(u =>
-      <User key={u.id} user={u} selectUser={this.selectUser} />);
+    const users = this.state.users;
     return (
-      <section>
-        {users}
-        <UserForm addUser={this.addUser} />
-      </section>
+      <div className='container'>
+        <div className='users'>
+          <div>
+            <h1>All users</h1>
+            <UserList users={users} selectUser={this.selectUser} />
+          </div>
+          <div>
+            <h2>Selected users</h2>
+            <SelectedUsers users={users} />
+          </div>
+        </div>
+        <div>
+          <h2>Add new User</h2>
+          <UserForm addUser={this.addUser} />
+        </div>
+      </div>
     );
   }
 
@@ -32,7 +44,9 @@ class UserSection extends Component {
 
   addUser = (name, avatar, married) => {
     const { users } = this.state;
+    const id = users.length + 1;
     const newUsers = [...users, {
+      id,
       name,
       avatar,
       married,
@@ -62,7 +76,7 @@ const userDB = [
     id: 3,
     name: 'Arnold S',
     avatar: 'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_960_720.png',
-    married: true
+    married: true,
   }
 ]
 

@@ -2,5 +2,16 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
+body{
+  text-align: center;
+}
+.container {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.users {
+  display: flex;
 }
