@@ -1,0 +1,28 @@
+article {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 30px;
+  margin: 10px;
+  padding: 10px;
+}
+
+button {
+  font-size: 1rem;
+  border-width: 0;
+  background-color: #d8d8d8;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+button:hover {
+  background-color: #c0c0c0;
+}
+button:active {
+  color: #fff;
+}
+button:focus {
+  outline: none;
+  box-shadow: 0 0 3px #c0c0c0;
+}
