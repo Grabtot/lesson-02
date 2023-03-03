@@ -37,7 +37,7 @@ class UserSection extends Component {
     const { users } = this.state;
     const newUsers = users.map(user => ({
       ...user,
-      isSelected: user.id == id ? !user.isSelected : user.isSelected
+      isSelected: user.id === id ? !user.isSelected : user.isSelected
     }));
     this.setState({ users: newUsers });
   }

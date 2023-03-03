@@ -24,7 +24,7 @@ class User extends Component {
     return (
       <article className={className}>
         <h1>{name} {this.state.isVisible && smile}</h1>
-        <img src={avatar}></img>
+        <img src={avatar} alt="Error"></img>
         <button onClick={this.switchSmile}>{this.state.isVisible
           ? "Hide" : "Show"} married</button>
         <button onClick={v => {
