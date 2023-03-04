@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Counter from '../counter/Counter';
 import SelectedUsers from '../selectedUsers/SelectedUsers';
+import StopWatch from '../StopWatch/StopWatch';
 import UserForm from '../userForm/UserForm';
 import UserList from '../userList/UserList';
 import './UserSection.css'
@@ -15,9 +17,11 @@ class UserSection extends Component {
     const users = this.state.users;
     return (
       <div className='container'>
+             <h1>Users</h1>
         <div className='users'>
+     
           <div>
-            <h1>All users</h1>
+            <h2>All users</h2>
             <UserList users={users} selectUser={this.selectUser} />
           </div>
           <div>
@@ -28,6 +32,11 @@ class UserSection extends Component {
         <div>
           <h2>Add new User</h2>
           <UserForm addUser={this.addUser} />
+        </div>
+        <button>Unmount</button> 
+        <div className='counters'>
+        <Counter />
+        <StopWatch />
         </div>
       </div>
     );

@@ -12,16 +12,14 @@ article {
 
 article:hover {
   background-color: #f5f5f5;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 article.selected {
   background-color: red;
 }
 
-article.selected:hover {
-  background-color: #ff8080;
-}
+
 
 
 button {
@@ -33,7 +31,7 @@ button {
   margin: 5px;
 }
 
-button:hover {
+.users button:hover {
   background-color: #c0c0c0;
 }
 
