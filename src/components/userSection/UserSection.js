@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Counter from '../counter/Counter';
 import SelectedUsers from '../selectedUsers/SelectedUsers';
-import StopWatch from '../StopWatch/StopWatch';
+import StopWatch from '../stopWatch/StopWatch';
 import UserForm from '../userForm/UserForm';
 import UserList from '../userList/UserList';
 import './UserSection.css'

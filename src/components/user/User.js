@@ -17,15 +17,17 @@ class User extends Component {
 
   render() {
     const { id, name, avatar, married, isSelected } = this.props.user;
+    const { isVisible } = this.state;
     const selectUser = this.props.selectUser;
     const smile = married ? "💔" : "💕";
-    const className = isSelected ? "selected" : undefined;
+
+    const btnClass = isVisible ? "red" : "green";
 
     return (
-      <article className={className}>
-        <h1>{name} {this.state.isVisible && smile}</h1>
+      <article className={isSelected ? "selected" : undefined}>
+        <h1>{name} {isVisible && smile}</h1>
         <img src={avatar} alt="Error"></img>
-        <button onClick={this.switchSmile}>{this.state.isVisible
+        <button className={btnClass} onClick={this.switchSmile}>{isVisible
           ? "Hide" : "Show"} married</button>
         <button onClick={v => {
           console.log("user selected");

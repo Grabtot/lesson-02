@@ -31,6 +31,14 @@ button {
   margin: 5px;
 }
 
+button.red {
+  background-color: red;
+}
+
+button.green {
+  background-color: rgb(18, 196, 18);
+}
+
 .users button:hover {
   background-color: #c0c0c0;
 }
