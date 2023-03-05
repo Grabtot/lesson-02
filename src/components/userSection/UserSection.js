@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Counter from '../counter/Counter';
 import SelectedUsers from '../selectedUsers/SelectedUsers';
-import StopWatch from '../StopWatch/StopWatch';
+import StopWatch from '../stopWatch/StopWatch';
 import UserForm from '../userForm/UserForm';
 import UserList from '../userList/UserList';
 import './UserSection.css'
@@ -9,12 +9,13 @@ class UserSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: userDB.map(user => ({ ...user, isSelected: false }))
+      users: userDB.map(user => ({ ...user, isSelected: false })),
+      selectedUsers: []
     }
   }
 
   render() {
-    const users = this.state.users;
+    const { users, selectedUsers } = this.state;
     return (
       <div className='container'>
         <h1>Users</h1>
@@ -25,7 +26,7 @@ class UserSection extends Component {
           </div>
           <div>
             <h2>Selected users</h2>
-            <SelectedUsers users={users} />
+            <SelectedUsers users={users} selectUser={this.selectUser} />
           </div>
         </div>
         <div>
@@ -42,7 +43,7 @@ class UserSection extends Component {
   }
 
   selectUser = (id) => {
-    const { users } = this.state;
+    const { users, selectedUsers } = this.state;
     const newUsers = users.map(user => ({
       ...user,
       isSelected: user.id === id ? !user.isSelected : user.isSelected
