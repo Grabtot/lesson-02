@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './User.css';
+import styles from './User.module.css';
 
 class User extends Component {
   constructor(props) {
@@ -17,12 +17,13 @@ class User extends Component {
 
   render() {
     const { id, name, avatar, married, isSelected } = this.props.user;
-    const selectUser = this.props.selectUser;
+    const { selectUser, theme } = this.props;
+    console.log(this.props);
     const smile = married ? "💔" : "💕";
     const className = isSelected ? "selected" : undefined;
 
     return (
-      <article className={className}>
+      <article className={styles[className] + " " + styles[theme]}>
         <h1>{name} {this.state.isVisible && smile}</h1>
         <img src={avatar} alt="Error"></img>
         <button onClick={this.switchSmile}>{this.state.isVisible

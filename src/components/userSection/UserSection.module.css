@@ -1,0 +1,47 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counters {
+  display: flex;
+}
+
+.container div {
+  margin: 0 30px;
+}
+
+
+
+body.dark {
+  background-color: #111;
+  color: #fff;
+}
+
+section.dark {
+  background-color: #222;
+}
+
+.container.dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.users.dark {
+  color: #fff;
+}
+
+.counters.dark {
+  color: #fff;
+}

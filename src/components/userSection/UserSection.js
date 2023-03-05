@@ -4,7 +4,7 @@ import SelectedUsers from '../selectedUsers/SelectedUsers';
 import StopWatch from '../stopWatch/StopWatch';
 import UserForm from '../userForm/UserForm';
 import UserList from '../userList/UserList';
-import './UserSection.css'
+import styles from './UserSection.module.css'
 class UserSection extends Component {
   constructor(props) {
     super(props);
@@ -16,37 +16,38 @@ class UserSection extends Component {
 
   render() {
     const { users, selectedUsers } = this.state;
+    const {theme} = this.props;
     return (
-      <div className='container'>
+      <div className={styles.container + " " + styles[theme]}>
         <h1>Users</h1>
-        <div className='users'>
-          <div>
+        <div>
+          <div className={styles.users + " " + styles[theme]}>
             <h2>All users</h2>
-            <UserList users={users} selectUser={this.selectUser} />
+            <UserList theme={theme} users={users} selectUser={this.selectUser} />
           </div>
           {selectedUsers.length > 0 ? (
             <div>
               <h2>Selected users</h2>
-              <SelectedUsers users={users} selectUser={this.selectUser} />
+              <SelectedUsers theme={theme} users={users} selectUser={this.selectUser} />
             </div>
           ) : null}
 
         </div>
         <div>
           <h2>Add new User</h2>
-          <UserForm addUser={this.addUser} />
+          <UserForm theme={theme} addUser={this.addUser} />
         </div>
         <h2>Counters</h2>
-        <div className='counters'>
-          <Counter />
-          <StopWatch />
+        <div className={styles.counters + " " + styles[theme]}>
+          <Counter theme={theme}/>
+          <StopWatch theme={theme}/>
         </div>
       </div>
     );
   }
 
   selectUser = (id) => {
-    const { users, selectedUsers } = this.state;
+    const { users } = this.state;
     const newUsers = users.map(user => ({
       ...user,
       isSelected: user.id === id ? !user.isSelected : user.isSelected

@@ -3,11 +3,11 @@ import User from '../user/User';
 
 class UserList extends Component {
   render() {
-    const { users, selectUser } = this.props;
+    const { users, selectUser, theme } = this.props;
     const renderUsers = (user) =>
-      <User key={user.id} user={user} selectUser={selectUser} />
+      <User theme={theme} key={user.id} user={user} selectUser={selectUser} />
     return (
-      <section>
+      <section className={theme}>
         {
           users.map(renderUsers)
         }

@@ -44,3 +44,27 @@ button:focus {
   outline: none;
   box-shadow: 0 0 3px #c0c0c0;
 }
+
+article.dark {
+  border: 1px solid white;
+}
+
+article.dark:hover {
+  background-color: #444444;
+}
+
+article.dark.selected {
+  background-color: #ff4d4d;
+}
+
+button.dark {
+  background-color: #444444;
+}
+
+button.dark.users:hover {
+  background-color: #666666;
+}
+
+button.dark:focus {
+  box-shadow: 0 0 3px #666666;
+}
