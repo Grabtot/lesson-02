@@ -24,10 +24,13 @@ class UserSection extends Component {
             <h2>All users</h2>
             <UserList users={users} selectUser={this.selectUser} />
           </div>
-          <div>
-            <h2>Selected users</h2>
-            <SelectedUsers users={users} selectUser={this.selectUser} />
-          </div>
+          {selectedUsers.length > 0 ? (
+            <div>
+              <h2>Selected users</h2>
+              <SelectedUsers users={users} selectUser={this.selectUser} />
+            </div>
+          ) : null}
+
         </div>
         <div>
           <h2>Add new User</h2>
@@ -48,7 +51,8 @@ class UserSection extends Component {
       ...user,
       isSelected: user.id === id ? !user.isSelected : user.isSelected
     }));
-    this.setState({ users: newUsers });
+    const newSelected = newUsers.filter(user => user.isSelected);
+    this.setState({ users: newUsers, selectedUsers: newSelected });
   }
 
   addUser = (name, avatar, married) => {
