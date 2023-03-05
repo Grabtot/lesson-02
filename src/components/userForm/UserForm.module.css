@@ -28,3 +28,11 @@ form button {
   font-size: 16px;
   cursor: pointer;
 }
+
+.unvalid {
+  color: red;
+}
+
+form .valid {
+  background-color: #007bff;
+}

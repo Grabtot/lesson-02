@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './UserForm.css'
+import styles from './UserForm.module.css'
 class UserForm extends Component {
   render() {
-
     const addUser = this.props.addUser;
     return (
       <form onSubmit={(e) => {
@@ -12,8 +11,8 @@ class UserForm extends Component {
         const married = e.target.married.checked;
         addUser(name, avatar, married);
       }}>
-        <input type="text" name="name" placeholder="Name" />
-        <input type="text" name="avatar" placeholder="Avatar URL" />
+        <input type="text" name="name" placeholder="Name" onChange={this.handleName} />
+        <input type="text" name="avatar" placeholder="Avatar URL" onChange={this.handleEmailUrl} />
         <label>
           <input type="checkbox" name="married" />
           Married
@@ -22,6 +21,14 @@ class UserForm extends Component {
       </form>
     );
   }
+
+
+  handleName = ({ e: { target } }) => {
+    if (target.value!= "Bob") {
+      target.className = styles.unvalid;
+    }
+  }
+
 }
 
 export default UserForm;

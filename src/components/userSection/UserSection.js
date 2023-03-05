@@ -17,9 +17,8 @@ class UserSection extends Component {
     const users = this.state.users;
     return (
       <div className='container'>
-             <h1>Users</h1>
+        <h1>Users</h1>
         <div className='users'>
-     
           <div>
             <h2>All users</h2>
             <UserList users={users} selectUser={this.selectUser} />
@@ -33,10 +32,10 @@ class UserSection extends Component {
           <h2>Add new User</h2>
           <UserForm addUser={this.addUser} />
         </div>
-        <button>Unmount</button> 
+        <h2>Counters</h2>
         <div className='counters'>
-        <Counter />
-        <StopWatch />
+          <Counter />
+          <StopWatch />
         </div>
       </div>
     );
